@@ -1,0 +1,486 @@
+:root {
+  --sun: #ffc93c;
+  --orange: #ff8a3d;
+  --coral: #ff5e5b;
+  --peach: #ffe3c4;
+  --cream: #fff8ef;
+  --card: #ffffff;
+  --text: #3b2416;
+  --muted: #8a6450;
+  --border: #f4d4b4;
+  --error-bg: #ffe4e1;
+  --error-text: #9c1f1a;
+  --radius: 20px;
+  --shadow: 0 8px 24px rgba(214, 104, 40, 0.15);
+  --tap: 48px;
+
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #ffe7a8 0%, #ffc49b 45%, #ff9f86 100%) fixed;
+  background-color: var(--peach);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Layout */
+.app {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.app-header {
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #7a2e0e;
+}
+
+.tagline {
+  color: #8a3d18;
+  font-weight: 500;
+}
+
+.app-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #7a2e0e;
+}
+
+.app-footer a {
+  color: inherit;
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #7a2e0e;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Meddelanden */
+.message {
+  padding: 14px 18px;
+  border-radius: 16px;
+  overflow-wrap: anywhere;
+}
+
+.message p + p,
+.message strong + p {
+  margin-top: 4px;
+}
+
+.message-error {
+  background: var(--error-bg);
+  color: var(--error-text);
+  border: 2px solid #ffb3ab;
+}
+
+.message-info {
+  background: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+/* Knappar */
+.button {
+  min-height: var(--tap);
+  padding: 0 22px;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--orange), var(--coral));
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(255, 94, 91, 0.35);
+}
+
+.button-primary:hover {
+  filter: brightness(1.05);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+/* Sök */
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-form {
+  display: flex;
+  gap: 8px;
+}
+
+.search-form input {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--tap);
+  padding: 0 18px;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  font-size: 1rem;
+}
+
+.search-form input:focus {
+  border-color: var(--orange);
+  outline: none;
+}
+
+.search-results {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.search-result {
+  width: 100%;
+  min-height: var(--tap);
+  padding: 8px 14px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.search-result:hover,
+.search-result:focus-visible {
+  background: var(--cream);
+}
+
+/* Favoriter */
+.favorites-empty {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #8a3d18;
+}
+
+.favorites-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid transparent;
+  border-radius: 999px;
+}
+
+.chip-active {
+  background: var(--card);
+  border-color: var(--orange);
+}
+
+.chip-select {
+  min-height: 44px;
+  min-width: 0;
+  padding: 0 4px 0 16px;
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chip-remove {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+}
+
+.chip-remove:hover {
+  color: var(--coral);
+}
+
+/* Aktuellt väder */
+.current {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: linear-gradient(145deg, #fffdf6, #fff1dc);
+}
+
+.current-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.current-place {
+  min-width: 0;
+}
+
+.current-place h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.favorite-toggle {
+  flex: none;
+  width: var(--tap);
+  height: var(--tap);
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--orange);
+}
+
+.favorite-toggle.is-favorite {
+  background: var(--sun);
+  border-color: var(--sun);
+  color: #7a2e0e;
+}
+
+.current-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.current-icon {
+  font-size: clamp(4rem, 18vw, 5.5rem);
+  line-height: 1;
+}
+
+.current-temp {
+  font-size: clamp(3rem, 14vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--coral);
+}
+
+.current-desc {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.current-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.current-details div {
+  padding: 10px 8px;
+  background: var(--cream);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.current-details dt {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.current-details dd {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Prognos */
+.forecast-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.forecast-day {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-areas:
+    'date icon temps'
+    'desc desc pop';
+  align-items: center;
+  column-gap: 12px;
+  padding: 12px 16px;
+}
+
+.forecast-date {
+  grid-area: date;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.forecast-weekday {
+  font-weight: 700;
+}
+
+.forecast-icon {
+  grid-area: icon;
+  font-size: 2rem;
+}
+
+.forecast-desc {
+  grid-area: desc;
+  font-size: 0.9rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.forecast-temps {
+  grid-area: temps;
+  display: flex;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.temp-max {
+  color: var(--coral);
+}
+
+.temp-min {
+  color: var(--muted);
+}
+
+.forecast-pop {
+  grid-area: pop;
+  justify-self: end;
+  font-size: 0.85rem;
+  color: #2d6fa3;
+}
+
+/* Bredare skärmar */
+@media (min-width: 720px) {
+  .app {
+    padding-top: 40px;
+    gap: 28px;
+  }
+
+  .current {
+    padding: 28px;
+  }
+
+  .forecast-list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .forecast-day {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'date'
+      'icon'
+      'temps'
+      'desc'
+      'pop';
+    justify-items: center;
+    text-align: center;
+    row-gap: 6px;
+    padding: 16px 10px;
+  }
+
+  .forecast-date {
+    align-items: center;
+  }
+
+  .forecast-icon {
+    font-size: 2.5rem;
+  }
+
+  .forecast-pop {
+    justify-self: center;
+  }
+}

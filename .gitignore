@@ -1,0 +1,12 @@
+node_modules
+dist
+
+# Lokala miljövariabler (innehåller API-nyckeln)
+.env.local
+.env.*.local
+
+# Loggar och editorfiler
+*.log
+.DS_Store
+.vscode
+.idea
