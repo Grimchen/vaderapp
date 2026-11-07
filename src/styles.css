@@ -484,3 +484,65 @@ main {
     justify-self: center;
   }
 }
+
+/* Stockholm-ruta (alltid överst) */
+.stockholm {
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.stockholm-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #7a2e0e;
+  margin-bottom: 8px;
+}
+
+.stockholm-days {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.stockholm-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  padding: 8px 4px;
+  border-radius: 14px;
+  background: var(--cream);
+}
+
+.stockholm-day.is-today {
+  background: var(--peach);
+  font-weight: 600;
+}
+
+.stockholm-weekday {
+  font-size: 0.85rem;
+}
+
+.stockholm-icon {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.stockholm-temp {
+  font-weight: 700;
+}
+
+.stockholm-desc {
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 640px) {
+  .stockholm-days {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}

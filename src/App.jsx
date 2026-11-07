@@ -5,6 +5,7 @@ import SearchBar from './components/SearchBar.jsx';
 import Favorites from './components/Favorites.jsx';
 import CurrentWeather from './components/CurrentWeather.jsx';
 import Forecast from './components/Forecast.jsx';
+import StockholmWeather from './components/StockholmWeather.jsx';
 
 export default function App() {
   const [favorites, setFavorites] = useState(loadFavorites);
@@ -69,6 +70,8 @@ export default function App() {
             <p>{MESSAGES.noKey}</p>
           </div>
         )}
+
+        <StockholmWeather />
 
         <SearchBar onSelect={showPlace} />
 
