@@ -1,4 +1,4 @@
-# AGENTS.md
+﻿# AGENTS.md
 
 ## Vad appen gör
 Solkollen är en svensk väderapp. Man söker en ort och ser aktuellt väder (temperatur, känns som, vind, luftfuktighet) samt femdygnsprognos med högsta/lägsta temperatur och nederbördsrisk. Favoritorter sparas i webbläsarens localStorage.
@@ -36,7 +36,7 @@ npm run preview    # förhandsgranska bygget
 ```
 
 ## Testa
-Det finns inga automatiska tester eller lint-skript. Verifiera manuellt:
+Kör automatiska tester (Vitest) med `npm test`. De körs även på varje pull request via `.github/workflows/test.yml` (jobbet `test`, krävs av rulesetet Skydda main). Det finns inget lint-skript. Verifiera dessutom manuellt:
 - `npm run build` ska gå igenom utan fel.
 - Kör `npm run dev` och kontrollera: sök på en ort, prognosen visas, favorit kan sparas/tas bort, och ett tydligt meddelande visas om nyckeln saknas eller är ogiltig.
 
@@ -48,5 +48,5 @@ Det finns inga automatiska tester eller lint-skript. Verifiera manuellt:
 
 ## Arbetssätt
 - Jobba alltid på en ny branch, aldrig direkt på main.
-- Kör testerna innan du öppnar en pull request. De ska gå igenom (här: `npm run build`, se Testa).
+- Kör testerna innan du öppnar en pull request. De ska gå igenom (här: `npm test`).
 - När du är klar: pusha branchen och öppna en pull request med gh.
